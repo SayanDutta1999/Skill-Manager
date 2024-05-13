@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    text-decoration: none;
+}
+a{
+    color: black;
+    font-size: 1rem;
+}
+.main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.main_operation-bar{
+    height: 10rem;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+.main_operation-bar_control-panel {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    
+}
+
+
+.wrapper_employee-name{
+    list-style: none;
+    padding: 20px;
+}
+.main_operation-bar_control-panel li{
+    border: 1px solid black;
+    border-radius: 50px;
+    padding: 10px;
+    background-color: rgb(76, 65, 228);
+}
+
+

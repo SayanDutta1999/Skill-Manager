@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        label {
+            font-size: larger;
+        }
+
+        option {
+            margin-bottom: 5px;
+
+        }
+
+        span {
+            font-size: small;
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        .form-wrapper {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .form-wrapper_form-search {
+            height: 55vh;
+            padding: 25px;
+            margin-top: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 1rem;
+
+        }
+
+        .form-wrapper_input {
+            width: 100%;
+            height: 20%;
+            font-size: 1em;
+            padding-left: 13px;
+        }
+
+        ::placeholder {
+            font-size: 1em;
+            padding: 10px;
+        }
+
+        #skill-list {
+            width: 100%;
+            padding: 5px 20px;
+            text-align: center;
+        }
+        .form-wrapper_skill-btn {
+            width: 50%;
+            height: 15%;
+            border-radius: 20px;
+            text-align: center;
+            font-size: medium;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-wrapper">
+        <h1>Search Employee</h1>
+        <form class="form-wrapper_form-search" name="search-form" action="/search/employee" method="post">
+
+            <label for="search">Enter your Email to delete your information</label><br>
+            <input class="form-wrapper_input" type="text" id="search" name="search" placeholder="Enter skills"
+                required><br>
+
+            <select id="skill-list" name="skills" id="skillList" multiple>
+                <option value="Database">Database and SQL</option>
+                <option value="OOP">OOP</option>
+                <option value="Cloud">Cloud computing</option>
+                <option value="Webdevelopment">Web development</option>
+                <option value="Git">Git</option>
+                <option value="FluentCommunication">Fluent Communication</option>
+                <option value="Problemsolving">Problem solving</option>
+            </select>
+            <span>Press Ctrl before selecting multiple options</span>
+            <br>
+            <button class="form-wrapper_skill-btn" id="form-wrapper_skill-add">Click to add skill</button><br>
+            <input class="form-wrapper_skill-btn" type="submit" value="submit">
+        </form>
+    </div>
+</body>
+<script>
+
+    const addSkillBtn = document.getElementById('form-wrapper_skill-add');
+    const skillList = document.getElementById('skill-list');
+    const formInput = document.getElementById('search');
+
+
+    addSkillBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        for (let j = 0; j < skillList.options.length; j++) {
+            const selectedOption = skillList.options[j];
+            // if option is selected then add it to the form input
+            if (selectedOption.selected) {
+                // if input is not empty then add a blank space after that
+                if (formInput.value !== "") {
+                    formInput.value = formInput.value + " ";
+                }
+                // after adding space then append selected option value with input value
+                formInput.value = formInput.value + selectedOption.value;
+            }
+        }
+    }, false);
+
+</script>
+
+</html>

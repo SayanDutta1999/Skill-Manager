@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        label{
+            font-size: larger;
+        }
+        option{
+            margin-bottom: 5px;
+        }
+        span{
+            font-size: small;
+            font-style: italic;
+            margin-top: 2px;
+        }
+        .form-wrapper{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .form-wrapper_form-update{
+            height: 25rem;
+            width: 25rem;
+            padding: 25px;
+            margin-top: 10px;
+            border: 1px solid black;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 1rem;
+        }
+        .form-wrapper_input{
+            width: 100%;
+            height: 20%;
+            font-size: 1em;
+            padding-left: 13px;
+        }
+        ::placeholder{
+            font-size: 1em;
+            padding: 10px;
+        }
+        .skill-list{
+            width: 100%;
+            height: 20em;
+            padding: 5px 20px;
+            text-align: center;
+        }
+        .form-wrapper_submit-btn{
+            width: 50%;
+            height: 15%;
+            border-radius: 20px;
+            text-align: center;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-wrapper">
+        <h1>Update Employee Information</h1>
+        <form class="form-wrapper_form-update" action="/edit/employee" method="post">
+            <label for="employee_email">Enter your Email to update information</label><br>
+            <input class="form-wrapper_input" type="email" id="employee_email" name="employee_email" required><br>
+            <label for="skill">Add more skills</label><br>
+            <select class="skill-list" name="skills[]" id="skillList" multiple>
+                <option value="Database">Database and SQL</option>
+                <option value="OOP">OOP</option>
+                <option value="Cloud">Cloud computing</option>
+                <option value="Web development">Web development</option>
+                <option value="Git">Git</option>
+                <option value="Fluent Communication">Fluent Communication</option>
+                <option value="Problem solving">Problem solving</option>
+            </select>
+            <span>Press Ctrl before selecting multiple options</span>
+            <br>
+            <input class="form-wrapper_submit-btn" type="submit" value="submit" >
+        </form>
+    </div>
+</body>
+</html>
